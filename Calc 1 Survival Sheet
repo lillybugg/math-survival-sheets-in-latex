@@ -1,0 +1,466 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{multicol}
+\geometry{margin=1in}
+
+\title{Calculus 1 Survival Sheet}
+\date{}
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ORIGINAL CONTENT (UNTOUCHED)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Definition of the Derivative}
+
+The derivative of a function $f(x)$ at a point $x$ is defined as:
+\[
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
+\]
+
+This limit, if it exists, gives the slope of the tangent line to the curve at the point $x$.
+
+\section*{Basic Derivatives}
+
+\begin{align*}
+\frac{d}{dx}(c) &= 0 \quad \text{(constant rule)} \\
+\frac{d}{dx}(x) &= 1 \\
+\frac{d}{dx}(x^n) &= nx^{n-1} \\
+\frac{d}{dx}(e^x) &= e^x \\
+\frac{d}{dx}(\ln x) &= \frac{1}{x} \\
+\frac{d}{dx}(\sin x) &= \cos x \\
+\frac{d}{dx}(\cos x) &= -\sin x \\
+\frac{d}{dx}(\tan x) &= \sec^2 x \\
+\frac{d}{dx}(\sec x) &= \sec x \tan x \\
+\frac{d}{dx}(\csc x) &= -\csc x \cot x \\
+\frac{d}{dx}(\cot x) &= -\csc^2 x
+\end{align*}
+
+\subsection*{Constant Multiple Rule}
+\[
+\frac{d}{dx}\left[c \cdot f(x)\right] = c \cdot f'(x)
+\]
+
+\section*{Rules of Differentiation}
+
+\subsection*{Sum and Difference Rule}
+\[
+\frac{d}{dx}[f(x) \pm g(x)] = f'(x) \pm g'(x)
+\]
+
+\subsection*{Product Rule}
+\[
+\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)
+\]
+
+\subsection*{Quotient Rule}
+\[
+\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}
+\]
+
+\section*{Chain Rule}
+If $y = f(g(x))$, then:
+\[
+\frac{dy}{dx} = f'(g(x)) \cdot g'(x)
+\]
+
+\textbf{Example:} If $y = \sin(x^2)$, then:
+\[
+\frac{dy}{dx} = \cos(x^2) \cdot 2x
+\]
+
+\section*{Implicit Differentiation}
+
+When $y$ is defined implicitly as a function of $x$, differentiate both sides with respect to $x$, applying the chain rule to $y$ terms.
+
+\textbf{Example:} For the equation $x^2 + y^2 = 25$:
+
+\begin{align*}
+\frac{d}{dx}(x^2) + \frac{d}{dx}(y^2) &= \frac{d}{dx}(25) \\
+2x + 2y\frac{dy}{dx} &= 0 \\
+\frac{dy}{dx} &= -\frac{x}{y}
+\end{align*}
+
+\section*{Useful Derivatives}
+
+\begin{multicols}{2}
+\begin{itemize}
+    \item $\frac{d}{dx}(a^x) = a^x \ln a$
+    \item $\frac{d}{dx}(\arcsin x) = \frac{1}{\sqrt{1 - x^2}}$
+    \item $\frac{d}{dx}(\arccos x) = \frac{-1}{\sqrt{1 - x^2}}$
+    \item $\frac{d}{dx}(\arctan x) = \frac{1}{1 + x^2}$
+\end{itemize}
+\end{multicols}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NEW SECTIONS ADDED BELOW
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{More Trig Derivatives}
+\[
+\frac{d}{dx}(arccot x)= -\frac{1}{1+x^2}, \quad
+\frac{d}{dx}(arcsec x)= \frac{1}{|x|\sqrt{x^2-1}}
+\]
+\[
+\frac{d}{dx}(arccsc x)= -\frac{1}{|x|\sqrt{x^2-1}}
+\]
+
+\section*{Basic Integration Rules}
+
+\begin{align*}
+\int x^n\,dx &= \frac{x^{n+1}}{n+1} + C \quad (n\neq -1)\\
+\int \frac{1}{x} \, dx &= \ln|x| + C \\
+\int e^x \, dx &= e^x + C \\
+\int a^x \, dx &= \frac{a^x}{\ln a} + C
+\end{align*}
+
+\subsection*{Trig Integrals}
+\begin{align*}
+\int \sin x\,dx &= -\cos x + C \\
+\int \cos x\,dx &= \sin x + C \\
+\int \sec^2 x\,dx &= \tan x + C \\
+\int \csc^2 x\,dx &= -\cot x + C \\
+\int \sec x \tan x\,dx &= \sec x + C \\
+\int \csc x \cot x\,dx &= -\csc x + C
+\end{align*}
+
+\section*{Integration by $u$-Substitution}
+
+If $u=g(x)$, then
+\[
+\int f(g(x))g'(x)\,dx = \int f(u)\,du.
+\]
+
+Steps:
+\begin{enumerate}
+\item Choose $u$ (inside part).
+\item Compute $du$.
+\item Rewrite integral in $u$.
+\item Integrate.
+\item Substitute back.
+\end{enumerate}
+
+\section*{Definition of $\ln x$ and $e^x$}
+\[
+\ln x = \int_1^x \frac{1}{t}\,dt.
+\]
+The function $e^x$ is the inverse of $\ln x$.
+
+\section*{Summation Rules}
+\[
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+\]
+
+\[
+\sum_{i=1}^{n} i^{2} = \frac{n(n+1)(2n+1)}{6}
+\]
+
+\[
+\sum_{i=1}^{n} i^{3} = \left( \frac{n(n+1)}{2} \right)^{2}
+\]
+
+% Linearity
+\[
+\sum_{i=1}^{n} (a f(i) + b g(i)) 
+= a\sum_{i=1}^{n} f(i) + b\sum_{i=1}^{n} g(i)
+\]
+
+% Constant Rule
+\[
+\sum_{i=1}^{n} c = cn
+\]
+
+% Shifting the Index
+\[
+\sum_{i=k}^{n} f(i) 
+= \sum_{j=1}^{n-k+1} f(j+k-1)
+\]
+\section*{Riemann Sums}
+\[
+\text{Left sum: } L_n = \sum_{i=1}^n f(x_{i-1})\Delta x
+\]
+\[
+\text{Right sum: } R_n = \sum_{i=1}^n f(x_i)\Delta x
+\]
+\[
+\text{Midpoint: } M_n = \sum_{i=1}^n f\left(\frac{x_{i-1}+x_i}{2}\right)\Delta x
+\]
+\[
+\Delta x=\frac{b-a}{n},\quad x_i=a+i\Delta x
+\]
+
+\section*{Linearization / Tangent Line Approximation}
+\[
+L(x) = f(a) + f'(a)(x-a)
+\]
+Approximation:
+\[
+f(x) \approx L(x)
+\]
+
+\section*{Fundamental Theorem of Calculus}
+\subsection*{Part 1}
+If $F'(x)=f(x)$, then
+\[
+\frac{d}{dx}\int_a^x f(t)\,dt = f(x).
+\]
+
+\subsection*{Part 2}
+\[
+\int_a^b f(x)\,dx = F(b)-F(a).
+\]
+
+\section*{Continuity}
+A function is continuous at $x=a$ if:
+\[
+\lim_{x\to a}f(x)=f(a).
+\]
+
+\section*{Closed Interval and Extreme Values}
+If $f$ is continuous on $[a,b]$, then it has an absolute max and an absolute min on $[a,b]$.
+
+\section*{Concavity and Inflection Points}
+\[
+f''(x)>0 \Rightarrow \text{concave up}, \quad f''(x)<0 \Rightarrow \text{concave down}.
+\]
+Inflection point: where concavity changes and $f''(x)=0$ or undefined.
+
+\section*{Mean Value Theorem}
+If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then
+\[
+f'(c)=\frac{f(b)-f(a)}{b-a}.
+\]
+
+\section*{Rolle's Theorem}
+If $f(a)=f(b)$ and $f$ satisfies MVT conditions, then 
+\[
+f'(c)=0
+\]
+for some $c$ in $(a,b)$.
+
+\section*{Tangent Line Formula}
+Slope: $m=f'(a)$  
+Equation:  
+\[
+y-f(a)=f'(a)(x-a)
+\]
+\section*{Reversing Limits of Integration}
+If the bounds of an integral are reversed:
+\[
+\int_b^a f(x)\,dx = -\int_a^b f(x)\,dx.
+\]
+
+This is super helpful when simplifying definite integrals or matching the Fundamental Theorem of Calculus.
+
+\section*{Even and Odd Functions in Integration}
+
+\subsection*{Even Functions}
+A function is \textbf{even} if:
+\[
+f(-x) = f(x).
+\]
+Examples: $\cos x$, $x^2$, $|x|$
+
+Integral shortcut:
+\[
+\int_{-a}^{a} f(x)\,dx = 2\int_{0}^{a} f(x)\,dx.
+\]
+
+\subsection*{Odd Functions}
+A function is \textbf{odd} if:
+\[
+f(-x) = -f(x).
+\]
+Examples: $\sin x$, $x^3$, $\tan x$
+
+Integral shortcut:
+\[
+\int_{-a}^{a} f(x)\,dx = 0.
+\]
+
+\section*{Integrals from \(0\) to \(x\) and Variable Upper Limits}
+
+If 
+\[
+F(x) = \int_0^x f(t)\,dt,
+\]
+then by the Fundamental Theorem of Calculus:
+\[
+F'(x) = f(x).
+\]
+
+More generally:
+\[
+\frac{d}{dx}\left( \int_{a}^{g(x)} f(t)\,dt \right)
+= f(g(x)) \cdot g'(x).
+\]
+
+And if the lower limit varies:
+\[
+\frac{d}{dx}\left( \int_{g(x)}^{a} f(t)\,dt \right)
+= -f(g(x)) \cdot g'(x).
+\]
+
+\section*{Integrals From \(-a\) to \(a\)}
+
+Use symmetry when possible:
+
+\[
+\int_{-a}^{a} f(x)\,dx =
+\begin{cases}
+0, & f(x) \text{ odd} \\[6pt]
+2\displaystyle\int_0^a f(x)\,dx, & f(x) \text{ even}
+\end{cases}
+\]
+
+This is especially useful in trig integrals and absolute value integrals.
+
+\section*{Related Rates Templates}
+
+\subsection*{General Steps}
+\begin{enumerate}
+\item Draw a diagram.
+\item Identify all variables.
+\item Write an equation relating quantities.
+\item Differentiate both sides w.r.t. time $t$.
+\item Substitute known values.
+\item Solve for the desired rate.
+\end{enumerate}
+
+\subsection*{Cone}
+Volume:
+\[
+V=\frac{1}{3}\pi r^2 h.
+\]
+If radius and height are proportional, use similar triangles before differentiating.
+
+\subsection*{Similar Triangles}
+If two triangles are similar:
+\[
+\frac{x}{a}=\frac{y}{b}.
+\]
+Differentiate after expressing one variable in terms of the other.
+
+\subsection*{Pythagorean (Ladder)}
+\[
+x^2+y^2 = L^2.
+\]
+Differentiate:
+\[
+2x\frac{dx}{dt}+2y\frac{dy}{dt}=0.
+\]
+
+\subsection*{Area Changing}
+\[
+A = \frac{1}{2}bh,\quad A=\pi r^2,\quad A=s^2.
+\]
+\section*{Intermediate Value Theorem (IVT)}
+If $f$ is continuous on $[a,b]$ and $N$ is between $f(a)$ and $f(b)$, then there exists some $c \in (a,b)$ such that
+\[
+f(c)=N.
+\]
+
+\textbf{Use IVT to show existence only (not to find $c$).}
+
+Steps:
+\begin{enumerate}
+\item Verify continuity on $[a,b]$
+\item Compute $f(a)$ and $f(b)$
+\item Show the target value lies between them
+\end{enumerate}
+
+\section*{Inverse Trig Integrals}
+\begin{align*}
+\int \frac{1}{a^2+x^2}\,dx &= \frac{1}{a}\arctan\!\left(\frac{x}{a}\right)+C \\
+\int \frac{1}{\sqrt{a^2-x^2}}\,dx &= \arcsin\!\left(\frac{x}{a}\right)+C \\
+\int \frac{1}{|x|\sqrt{x^2-a^2}}\,dx &= \arcsec\!\left(\frac{|x|}{a}\right)+C
+\end{align*}
+
+\textbf{Tip:} Match the form exactly before integrating.
+
+\section*{Exponential Growth and Decay}
+\[
+\frac{dP}{dt}=kP
+\]
+
+Solution:
+\[
+P(t)=P_0e^{kt}
+\]
+
+\begin{itemize}
+\item $k>0$ growth
+\item $k<0$ decay
+\end{itemize}
+
+Doubling time:
+\[
+T=\frac{\ln 2}{k}
+\]
+
+Half-life:
+\[
+T=\frac{\ln 2}{|k|}
+\]
+
+\section*{Differential Equations}
+
+\subsection*{Separable Equations}
+\[
+\frac{dy}{dx}=g(x)h(y)
+\]
+
+Steps:
+\begin{enumerate}
+\item Separate variables
+\item Integrate both sides
+\item Add $C$
+\item Solve for $y$
+\end{enumerate}
+
+\section*{Initial Value Problems}
+Use the given condition (ex: $y(0)=y_0$) to solve for $C$.
+
+\textbf{Important:} Plug in the initial value \emph{after} integrating.
+\section*{Trig Substitution}
+\begin{center}
+\begin{tabular}{c c}
+Expression & Substitution \\ \hline
+$\sqrt{a^2-x^2}$ & $x=a\sin\theta$ \\
+$\sqrt{a^2+x^2}$ & $x=a\tan\theta$ \\
+$\sqrt{x^2-a^2}$ & $x=a\sec\theta$
+\end{tabular}
+\end{center}
+
+Steps:
+\begin{enumerate}
+\item Substitute
+\item Use trig identities
+\item Integrate
+\item Convert back using a triangle
+\end{enumerate}
+\section*{Optimization Problems}
+
+Common goals: maximum area, minimum cost, shortest distance.
+
+Steps:
+\begin{enumerate}
+\item Draw a diagram
+\item Write the objective function
+\item Use constraints to reduce to one variable
+\item Find critical points
+\item Check endpoints / reasonableness
+\end{enumerate}
+
+Common setups:
+\begin{itemize}
+\item Fencing problems
+\item Box problems
+\item Distance problems
+\end{itemize}
+
+\end{document}
