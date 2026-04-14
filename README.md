@@ -2,7 +2,9 @@ Welcome! This repo is your one-stop stash for **Math Survival Sheets**—all the
 
 ## What's Inside
 - **LaTeX source files**: Edit, remix, or learn from the code.  
-- **PDF versions**: Ready-to-use sheets for quick reference.  
+- **PDF versions**: Ready-to-use sheets for quick reference.
+
+- Subjects: Foundations of Algebra, Trigonometry, and Calculus 1. More on the way!
 
 ## How to Use
 1. Browse the PDFs in the `/pdfs` folder for quick studying.  
