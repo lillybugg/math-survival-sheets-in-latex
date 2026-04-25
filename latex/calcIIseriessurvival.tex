@@ -4,10 +4,8 @@
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage[margin=1in]{geometry}
 
-
-% Define the environment: \newtheorem{name}{Label}[reset_counter]
 \newtheorem{theorem}{Theorem}[section] 
-\newtheorem{lemma}[theorem]{Lemma} % Shares numbering with theorems
+\newtheorem{lemma}[theorem]{Lemma} 
 \newtheoremstyle{mydef}
 {\topsep}{\topsep}%
 {}{}%
@@ -134,7 +132,18 @@ Note: This test can be used on any series.
 \]
 \[\sum_{n=1}^{\infty} (a_n \pm b_n) &= \sum_{n=1}^{\infty} a_n \pm \sum_{n=1}^{\infty} b_n
 \]
-
+\section*{Telescoping Series}
+A telescoping series has cancellation between terms:
+\[
+\sum (a_n - a_{n+1})
+\]
+Steps:
+\begin{itemize}
+\item Rewrite using partial fractions if needed
+\item Expand partial sums
+\item Cancel terms
+\item Take limit of remaining boundary terms
+\end{itemize}
 \section*{Geometric Series}
 A \textit{geometric series} is of the form:
 \[
@@ -258,7 +267,6 @@ L=\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|.
 \[
 \sum_{n=0}^{\infty} c_n(x-a)^n
 \]
-
 \subsection*{Radius of Convergence}
 Find $R$ using Ratio Test.
 
@@ -267,7 +275,20 @@ Find $R$ using Ratio Test.
 \item Diverges for $|x-a|>R$
 \item Test endpoints separately
 \end{itemize}
+\subsection*{Power Series Operations}
+You can differentiate and integrate term-by-term:
+\begin{align*}
+\frac{d}{dx}\sum c_n(x-a)^n &= \sum n c_n (x-a)^{n-1} \\
+\int \sum c_n(x-a)^n dx &= \sum \frac{c_n}{n+1}(x-a)^{n+1}
+\end{align*}
 
+\subsection*{Interval of Convergence Notes}
+Always express final answers as:
+\begin{itemize}
+\item $(a-R, a+R)$
+\item $[a-R, a+R]$
+\item mixed endpoints like $(a-R, a+R]$
+\end{itemize}
 \section*{Taylor Series}
 
 \[
@@ -278,11 +299,13 @@ f(x)=\sum_{n=0}^{\infty}
 \subsection*{Maclaurin Series (Taylor Series with $a=0$)}
 
 \begin{align*}
-e^x &= \sum_{n=0}^{\infty}\frac{x^n}{n!} \\
-\sin x &= \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!} \\
-\cos x &= \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!} \\
-\frac{1}{1-x} &= \sum_{n=0}^{\infty}x^n, \quad |x|<1 \\
-\ln(1+x) &= \sum_{n=1}^{\infty}(-1)^{n+1}\frac{x^n}{n},\ |x|<1
+e^x &= \sum_{n=0}^{\infty}\frac{x^n}{n!}, \quad R=\infty \\
+\sin x &= \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}, \quad R=\infty \\
+\cos x &= \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!}, \quad R=\infty \\
+\frac{1}{1-x} &= \sum_{n=0}^{\infty}x^n, \quad |x|<1,\; R=1 \\
+\ln(1+x) &= \sum_{n=1}^{\infty}(-1)^{n+1}\frac{x^n}{n}, \quad |x|<1,\; R=1 \\
+(1+x)^k &= \sum_{n=0}^{\infty} \binom{k}{n} x^n, \quad |x|<1,\; R=1 \\
+\tan^{-1}x &= \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n+1}}{2n+1}, \quad |x|\le 1,\; R=1
 \end{align*}
 
 \end{document}
