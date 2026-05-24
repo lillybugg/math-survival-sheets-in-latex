@@ -17,6 +17,5 @@ Welcome! This repo is your one-stop stash for **Math Survival Sheets**—all the
 
 ## Notes
 - Sheets are free for personal and educational use.  
-- Star ⭐ if it saves your grade, it helps me feel validated.  
 
 Enjoy 🚀
