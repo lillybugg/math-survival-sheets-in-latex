@@ -1,0 +1,765 @@
+
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[margin=1in]{geometry}
+
+
+% Define the environment: \newtheorem{name}{Label}[reset_counter]
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{lemma}[theorem]{Lemma} % Shares numbering with theorems
+\newtheoremstyle{mydef}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}
+{\newline}
+{%
+  \rule{\textwidth}{0.4pt}\\*%
+  \thmname{#1}~\thmnumber{#2}\thmnote{\ -\ #3}.\\*[-1.5ex]%
+  \rule{\textwidth}{0.4pt}}%
+
+\theoremstyle{mydef}
+\newtheorem{definition}{Definition}
+\title{Calculus II Survival Sheet}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Volumes of Revolution}
+
+\subsection*{Disk Method}
+\[
+V=\pi\int_a^b R^2\,dx
+\]
+
+\subsection*{Washer Method}
+\[
+V=\pi\int_a^b (r_{outer}^2-r_{inner}^2)\,dx
+\]
+
+\subsection*{Shell Method}
+\[
+V=2\pi\int_a^b (\text{radius})(\text{height})\,dx
+\]
+
+Rule:
+\begin{itemize}
+\item Parallel slices $\rightarrow$ Washers
+\item Perpendicular slices $\rightarrow$ Shells
+\end{itemize}
+
+\section*{Arc Length}
+
+\[
+L=\int_a^b \sqrt{1+(y')^2}\,dx
+\]
+
+
+\section*{Integration Techniques}
+
+\subsection*{Integration by Parts}
+\[
+\int u\,dv=uv-\int v\,du
+\]
+
+\subsection*{Trigonometric Integrals}
+
+Odd power of sine:
+save one $\sin x$.
+
+Odd power of cosine:
+save one $\cos x$.
+
+Even powers:
+use identities
+\[
+\sin^2x=\frac{1-\cos2x}{2},\quad
+\cos^2x=\frac{1+\cos2x}{2}
+\]
+
+\subsection*{Trig Substitution}
+
+\[
+\sqrt{a^2-x^2}\Rightarrow x=a\sin\theta
+\]
+\[
+\sqrt{a^2+x^2}\Rightarrow x=a\tan\theta
+\]
+\[
+\sqrt{x^2-a^2}\Rightarrow x=a\sec\theta
+\]
+
+Always draw a triangle to back-substitute.
+
+
+\subsection*{Partial Fractions}
+
+Used to integrate rational functions:
+\[
+\int \frac{P(x)}{Q(x)}\,dx
+\]
+
+\textbf{Requirement:}
+\[
+\deg(P)<\deg(Q)
+\]
+If not, perform polynomial long division first.
+
+\bigskip
+\textbf{Step 1: Factor the Denominator}
+
+Factor $Q(x)$ completely over the reals.
+
+\subsubsection*{Case 1: Distinct Linear Factors}
+
+If
+\[
+Q(x)=(x-a)(x-b)
+\]
+
+then
+\[
+\frac{P(x)}{(x-a)(x-b)}
+=\frac{A}{x-a}+\frac{B}{x-b}
+\]
+
+Example:
+\[
+\frac{3x+5}{(x-1)(x+2)}
+=\frac{A}{x-1}+\frac{B}{x+2}
+\]
+
+\subsubsection*{Case 2: Repeated Linear Factors}
+
+If
+\[
+Q(x)=(x-a)^n
+\]
+
+include every power:
+\[
+\frac{P(x)}{(x-a)^n}
+=\frac{A_1}{x-a}
++\frac{A_2}{(x-a)^2}
++\cdots
++\frac{A_n}{(x-a)^n}
+\]
+
+Example:
+\[
+\frac{2x+1}{(x-3)^3}
+=
+\frac{A}{x-3}
++\frac{B}{(x-3)^2}
++\frac{C}{(x-3)^3}
+\]
+
+\subsubsection*{Case 3: Irreducible Quadratic Factors}
+
+If the quadratic cannot factor over the reals:
+\[
+x^2+bx+c
+\]
+
+use a linear numerator:
+\[
+\frac{Ax+B}{x^2+bx+c}
+\]
+
+Example:
+\[
+\frac{x}{(x-1)(x^2+4)}
+=
+\frac{A}{x-1}
++\frac{Bx+C}{x^2+4}
+\]
+
+\subsubsection*{Case 4: Repeated Irreducible Quadratics}
+
+If
+\[
+(x^2+1)^2
+\]
+
+then
+\[
+\frac{Ax+B}{x^2+1}
++\frac{Cx+D}{(x^2+1)^2}
+\]
+
+\subsection*{Improper Integrals}
+Improper integrals are defined using limits.
+
+%------------------------------------------------
+
+\subsubsection*{Type I: Infinite Interval}
+
+\textbf{Infinite upper bound}
+\[
+\int_a^{\infty} f(x)\,dx
+=\lim_{b\to\infty}\int_a^b f(x)\,dx
+\]
+
+\textbf{Infinite lower bound}
+\[
+\int_{-\infty}^{a} f(x)\,dx
+=\lim_{b\to-\infty}\int_b^a f(x)\,dx
+\]
+
+\textbf{Both directions}
+\[
+\int_{-\infty}^{\infty} f(x)\,dx
+=
+\int_{-\infty}^{c}f(x)\,dx
++
+\int_c^{\infty}f(x)\,dx
+\]
+
+Each limit must converge separately.
+
+\subsubsection*{Type II: Infinite Integrand (Vertical Asymptote)}
+
+If $f(x)$ is discontinuous or undefined at an endpoint or inside the interval, rewrite using limits.
+
+\textbf{At right endpoint $x=b$:}
+\[
+\int_a^b f(x)\,dx
+=
+\lim_{t\to b^-}\int_a^t f(x)\,dx
+\]
+
+\textbf{At left endpoint $x=a$:}
+\[
+\int_a^b f(x)\,dx
+=
+\lim_{t\to a^+}\int_t^b f(x)\,dx
+\]
+
+
+\textbf{If discontinuous at $x=c$ inside $(a,b)$:}
+\[
+\int_a^b f(x)\,dx
+=
+\lim_{t\to c^-}\int_a^t f(x)\,dx
++
+\lim_{t\to c^+}\int_t^b f(x)\,dx
+\]
+
+Both limits must converge for the integral to converge.
+\section*{Differential Equations (Separable + Initial Value Problems)}
+
+A differential equation relates a function and its derivatives.
+
+We focus on \textbf{separable equations}:
+\[
+\frac{dy}{dx} = g(x)h(y)
+\]
+
+
+
+\subsubsection*{Step 1: Separate Variables}
+
+Rearrange to isolate $x$ and $y$:
+
+\[
+\frac{1}{h(y)}\,dy = g(x)\,dx
+\]
+
+This is the key move: get all $y$ terms with $dy$, all $x$ terms with $dx$.
+
+
+
+\subsubsection*{Step 2: Integrate Both Sides}
+
+\[
+\int \frac{1}{h(y)}\,dy = \int g(x)\,dx
+\]
+
+Do NOT forget the constant:
+\[
++ C
+\]
+
+Usually written on one side after integrating (two constants become one new constant).
+
+
+\subsubsection*{Step 3: Solve for $y$ (if possible)}
+
+After integrating, isolate $y$ explicitly if you can.
+
+Sometimes you leave it implicit if solving is messy.
+
+
+
+\subsubsection*{Initial Value Problems (IVPs)}
+
+Given:
+\[
+\frac{dy}{dx} = g(x)h(y), \quad y(x_0)=y_0
+\]
+
+Steps:
+\begin{enumerate}
+\item Separate variables
+\item Integrate both sides
+\item Apply initial condition $(x_0, y_0)$
+\item Solve for constant $C$
+\item Solve for $y$ (if possible)
+\end{enumerate}
+
+\section*{L'Hôpital's Rule}
+
+Used to evaluate limits of indeterminate forms:
+
+\[
+\frac{0}{0} \quad \text{or} \quad \frac{\infty}{\infty}
+\]
+
+If
+\[
+\lim_{x\to a} \frac{f(x)}{g(x)} \text{ is } \frac{0}{0} \text{ or } \frac{\infty}{\infty},
+\]
+
+then:
+\[
+\lim_{x\to a} \frac{f(x)}{g(x)}
+=
+\lim_{x\to a} \frac{f'(x)}{g'(x)}
+\]
+
+Apply repeatedly if needed.
+
+\textbf{Important:} Only use if the original limit is truly indeterminate.
+
+\subsubsection*{Other Indeterminate Forms (must rewrite first)}
+
+L'Hôpital's Rule does NOT directly apply to:
+
+\[
+0 \cdot \infty,\quad \infty - \infty,\quad 0^0,\quad 1^\infty,\quad \infty^0
+\]
+
+These must be algebraically rewritten first.
+
+
+
+\subsubsection*{Indeterminate Powers Strategy}
+
+For expressions of the form:
+\[
+f(x)^{g(x)}
+\]
+
+Take natural logs:
+
+\[
+y = f(x)^{g(x)}
+\quad \Rightarrow \quad
+\ln y = g(x)\ln(f(x))
+\]
+
+Then evaluate:
+\[
+\lim \ln y = \lim g(x)\ln(f(x))
+\]
+
+Now apply algebra + L'Hôpital if needed.
+
+Finally exponentiate:
+
+\[
+\lim y = e^{\lim \ln y}
+\]
+
+\section*{Sequences}
+
+\begin{definition}
+A \textit{sequence} is a function $a_n : \mathbb{N} \to \mathbb{R}$.
+
+\[
+\{a_n\} = a_1, a_2, a_3, \dots
+\]
+This is an infinitely long ordered list. 
+\end{definition}
+\subsection*{Limit of a Sequence}
+
+\begin{definition}
+    The sequence $\{a_n\}$ has the \textit{limit} L and we write
+\[
+\lim_{n \to \infty} a_n = L.
+\]
+If $lim_{n \to \infty} a_n$ exists, we say the sequence \textit{converges}. Otherwise, we say the sequence \textit{diverges}.
+\end{definition}
+
+\begin{theorem}
+    If 
+\[
+\lim_{n \to \infty} f(x) = L.
+\] and $f(n)=a_n$ where n is an integer, then $
+\lim_{n \to \infty} a_n = L.$
+\end{theorem}
+
+\textbf{Example:} $1,-1,1,-1,...$ is of the form $(-1)^{n+1}$\\
+\textbf{Example:} $-1,1,-1,1,...$ is of the form $(-1)^n$
+\subsection*{Algebraic Limit Laws}
+If $\lim a_n = A$ and $\lim b_n = B$, then:
+\begin{align*}
+$\lim (a_n + b_n) &= A+B$ \\
+$\lim (a_n b_n) &= AB$ \\
+$\lim \frac{a_n}{b_n} &= \frac{A}{B}, \quad B\neq0$
+\end{align*}
+
+\subsection*{Squeeze Theorem}
+If
+\[
+a_n \le b_n \le c_n
+\]
+and
+\[
+\lim a_n = \lim c_n = L,
+\]
+then
+\[
+\lim b_n = L.
+\]
+
+\section*{Infinite Series}
+
+\begin{definition}
+    An infinite series is
+\[
+\sum_{n=1}^{\infty} a_n.
+\]
+\end{definition}
+
+\begin{definition}
+Define partial sums:
+\[
+S_N=\sum_{n=1}^N a_n.
+\]
+\end{definition}
+
+\textbf{Example:}
+These are partial sums:\\
+$s_1=a_1$\\
+$s_2=a_1+a_2$\\
+In general we have:\\
+$s_n=a_1+a_2+...+a_n$\\
+
+\noindent The series converges if $\lim_{N\to\infty} S_N$ exists.
+
+\begin{definition}
+    Given a series $\sum_{n=1}^\infty a_n=a_1+a_2+a_3+...,$ let $s_n$ denote its $n$th partial sum.:\\
+\[
+s_n=\sum_{i=1}^n a_i=a_1+a_2+a_3+...+a_n.
+\]
+If the seqeuence $\{s_n\}$ is convergent and $\lim_{n\to\infty} s_n=s$ exists as a real number, then the series  $\sum_{n=1}^\infty a_n$ is called \textit{convergent} and we write:\\
+\[
+a_1+a_2+a_3+...+a_n=s.
+\]
+or
+\[
+\sum_{i=1}^\infty a_i = s
+\]
+The number $s$ is called the \textit{sum} of the series. If the sequence $\{s_n\}$ is divergent, the the series is called \textit{divergent}.
+\end{definition}
+\subsection*{Divergence Test}
+If
+\[
+\lim_{n\to\infty} a_n \neq 0,
+\]
+then the series diverges. If it is 0, no conclusion can be drawn.\\
+Note: This test can be used on any series.
+
+\textbf{Linearity of Series}
+\[
+\sum_{n=1}^{\infty} c \, a_n &= c \sum_{n=1}^{\infty} a_n, \quad c \in \mathbb{R}
+\]
+\[\sum_{n=1}^{\infty} (a_n \pm b_n) &= \sum_{n=1}^{\infty} a_n \pm \sum_{n=1}^{\infty} b_n
+\]
+\section*{Telescoping Series}
+A telescoping series has cancellation between terms:
+\[
+\sum (a_n - a_{n+1})
+\]
+Steps:
+\begin{itemize}
+\item Rewrite using partial fractions if needed
+\item Expand partial sums
+\item Cancel terms
+\item Take limit of remaining boundary terms
+\end{itemize}
+\section*{Geometric Series}
+A \textit{geometric series} is of the form:
+\[
+\sum_{n=1}^{\infty} ar^{n-1}=a+ar+ar^2+ar^3+...+ar^{n-1}+...
+\]
+where $a\neq 0$\\
+Each term is obtained from the preceding one by multiplyig it by the \textit{common ratio (r)}.\\
+\\
+The geometric series 
+\[
+\sum_{n=1}^{\infty} ar^{n-1}=a+ar+ar^2+ar^3+...+ar^{n-1}+...
+\]
+is convergent if $|r|<1$ and its sum is:
+\[
+\frac{a}{1-r}.
+\]
+If $|r|\ge1$ the geometric series is divergent.\\
+Note: This is specifically for the geometric series.
+
+\section*{p-Series}
+A \textit{p-series} is of the form:
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^p}
+\]
+
+\begin{itemize}
+\item Converges if $p>1$
+\item Diverges if $p\le1$
+\end{itemize}
+
+\textbf{Harmonic Series:}
+\[
+\sum_{n=1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots
+\]
+
+Using the p-series test: $\sum_{n=1}^{\infty} \frac{1}{n^p}$ converges if $p>1$, diverges if p \le 1.
+
+\text{Here, } p = 1, \text{ so the series diverges.}
+
+\section*{Integral Test}
+
+Let $f$ be continuous from $[1,\infty)$, positive, decreasing and $a_n=f(n)$.
+
+Then
+\[
+\sum a_n \text{  converges if and only if } \int_1^\infty f(x)\,dx \text{ converges}
+\]
+
+\[
+\sum a_n \text{  diverges if and only if } \int_1^\infty f(x)\,dx \text{ diverges}
+\]
+either both converge or both diverge.
+
+\section*{Comparison Tests}
+
+\subsection*{Direct Comparison Test}
+Suppose that $\sum a_n$ and $\sum b_n$ are series with positive terms.
+
+\begin{itemize}
+\item If $\sum b_n$ converges and $a_n\leq b_n  \forall n$ $\Rightarrow \sum a_n$ converges.
+\item If $\sum b_n$ diverges and $a_n\geq b_n \forall n$ $\Rightarrow \sum a_n$ diverges.
+\end{itemize}
+
+\subsection*{Limit Comparison Test}
+Suppose  that $\sum a_n$ and $\sum b_n$ are series with postivie terms. If 
+\[
+\lim_{n\to\infty}\frac{a_n}{b_n}=c,
+\quad 0<c<\infty,
+\]
+then either both series converge or both diverge.
+
+\section*{Alternating Series}
+
+\begin{definition}
+    An \textit{alternating series} is a series whose terms are alternately positive and negative.
+\end{definition}
+
+\subsection*{Alternating Series Test}
+For
+\[
+\sum (-1)^n b_n,
+\]
+if:
+\begin{itemize}
+\item $b_{n+1}\leq b_n \forall n$,
+\item $\lim_{n \to \infty} b_n = 0$,
+\end{itemize}
+then the series converges.\\
+\textbf{Note:} $b_n$ is the absolute value of $a_n$
+
+
+\section*{Absolute and Conditional Convergence}
+
+\begin{definition}
+    A series is \textit{absolutely convergent} if $\sum |a_n|$ converges.
+\end{definition}
+\begin{definition}
+    A series is \textit{conditionally convergent} if it is convergent but not absolutely convergent ($\sum |a_n|$ diverges).
+\end{definition}
+
+\begin{theorem}
+If a series $\sum a_n$ is absolutely convergent, then it is convergent.
+\end{theorem}
+
+
+\section*{Ratio Test}
+
+Let
+\[
+L=\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|.
+\]
+
+\begin{itemize}
+\item If $\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=L<1$ the series $\sum a_n$ is absolutely convergent (So it is convergent)
+\item If $\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=L>1$ the series $\sum a_n$ is divergent
+\item If $\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=L=1$ then the ratio test is inconclusive for the series $\sum a_n$.
+\end{itemize}
+
+\section*{Power Series}
+
+\[
+\sum_{n=0}^{\infty} c_n(x-a)^n
+\]
+\subsection*{Radius of Convergence}
+Find $R$ using Ratio Test.
+
+\begin{itemize}
+\item Converges for $|x-a|<R$
+\item Diverges for $|x-a|>R$
+\item Test endpoints separately
+\end{itemize}
+\subsection*{Power Series Operations}
+You can differentiate and integrate term-by-term:
+\begin{align*}
+\frac{d}{dx}\sum c_n(x-a)^n &= \sum n c_n (x-a)^{n-1} \\
+\int \sum c_n(x-a)^n dx &= \sum \frac{c_n}{n+1}(x-a)^{n+1}
+\end{align*}
+
+\subsection*{Interval of Convergence Notes}
+Always express final answers as:
+\begin{itemize}
+\item $(a-R, a+R)$
+\item $[a-R, a+R]$
+\item mixed endpoints like $(a-R, a+R]$
+\end{itemize}
+\section*{Taylor Series}
+
+\[
+f(x)=\sum_{n=0}^{\infty}
+\frac{f^{(n)}(a)}{n!}(x-a)^n
+\]
+
+\subsection*{Maclaurin Series (Taylor Series with $a=0$)}
+
+\begin{align*}
+e^x &= \sum_{n=0}^{\infty}\frac{x^n}{n!}, \quad R=\infty \\
+\sin x &= \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}, \quad R=\infty \\
+\cos x &= \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!}, \quad R=\infty \\
+\frac{1}{1-x} &= \sum_{n=0}^{\infty}x^n, \quad |x|<1,\; R=1 \\
+\ln(1+x) &= \sum_{n=1}^{\infty}(-1)^{n+1}\frac{x^n}{n}, \quad |x|<1,\; R=1 \\
+(1+x)^k &= \sum_{n=0}^{\infty} \binom{k}{n} x^n, \quad |x|<1,\; R=1 \\
+\tan^{-1}x &= \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n+1}}{2n+1}, \quad |x|\le 1,\; R=1
+\end{align*}
+
+\section*{Parametric Functions}
+
+A parametric curve is defined by:
+\[
+x = x(t), \quad y = y(t)
+\]
+
+The parameter $t$ traces the curve.
+
+\subsubsection*{Slope of a Parametric Curve}
+
+\[
+\frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}
+\]
+
+\textbf{Important:}
+\[
+\frac{dx}{dt} \neq 0
+\]
+
+\subsubsection*{Tangent Line (Parametric)}
+
+At $t=t_0$:
+
+\begin{align*}
+x_0 &= x(t_0) \\
+y_0 &= y(t_0)
+\end{align*}
+
+Slope:
+\[
+m = \frac{dy/dt}{dx/dt}\Bigg|_{t=t_0}
+\]
+
+Equation:
+\[
+y - y_0 = m(x - x_0)
+\]
+
+
+
+\subsubsection*{Area (Parametric)}
+
+\[
+A = \int_{t=a}^{t=b} y(t)\frac{dx}{dt}\,dt
+\]
+
+
+\subsubsection*{Arc Length (Parametric)}
+
+\[
+L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt
+\]
+
+
+\section*{Polar Functions and Regions}
+
+Polar form:
+\[
+r = f(\theta)
+\]
+
+Conversion:
+\[
+x = r\cos\theta, \quad y = r\sin\theta
+\]
+
+
+\subsubsection*{Slope in Polar Coordinates}
+
+\[
+\frac{dy}{dx}
+=
+\frac{\frac{dr}{d\theta}\sin\theta + r\cos\theta}
+{\frac{dr}{d\theta}\cos\theta - r\sin\theta}
+\]
+
+
+\subsubsection*{Area in Polar Coordinates}
+
+\[
+A = \frac{1}{2}\int_{\alpha}^{\beta} r^2\,d\theta
+\]
+
+\textbf{Between two curves:}
+\[
+A = \frac{1}{2}\int_{\alpha}^{\beta} \left(r_{\text{outer}}^2 - r_{\text{inner}}^2\right)\,d\theta
+\]
+
+
+\subsubsection*{Arc Length (Polar)}
+
+\[
+L = \int_{\alpha}^{\beta} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2}\,d\theta
+\]
+
+
+
+\subsubsection*{Finding Area Between Polar Curves}
+
+Steps:
+\begin{enumerate}
+\item Find intersection angles ($r_1 = r_2$)
+\item Determine outer and inner curve
+\item use the formula
+\end{enumerate}
+\end{document}
